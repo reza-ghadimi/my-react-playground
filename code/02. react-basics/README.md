@@ -1,5 +1,3 @@
-Great question! It's important to follow good practices when naming **properties** and **field names** in React. Here's an updated version of the README, including **properties** and **field names** naming conventions:
-
 ---
 
 # **React JSX Files, Components, Conventions, and Naming Best Practices**
