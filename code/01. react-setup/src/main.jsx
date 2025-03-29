@@ -12,12 +12,14 @@ import App from './App.jsx'
 
 // Creates the root of the React app and renders the App component wrapped inside StrictMode for development checks.
 // The app is rendered inside the DOM element with the id="root".
-var rootComponent = createRoot(document.getElementById('root'));
+var entryPoint = document.getElementById('root');
+var rootComponent = createRoot(entryPoint);
 
 // The app component is wrapped in StrictMode to help identify potential problems during development.
 var appComponent = (
-  <StrictMode> 
-    <App />  // The main application component
+  // The main application component
+  <StrictMode>
+    <App />
   </StrictMode>
 );
 
