@@ -65,3 +65,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.even {
+  color: khaki;
+  font-weight: bold;
+}
+
+.odd {
+  color: red;
+  font-style: italic;
+}

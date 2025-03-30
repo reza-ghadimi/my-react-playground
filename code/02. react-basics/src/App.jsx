@@ -946,7 +946,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-19: Logging Execution [READ: Understanding-React-Component-Execution.md]
+// STEP-19: Logging Execution [READ: docs/Understanding-React-Component-Execution.md]
 // **************************************************
 // import './App.css'
 // import { LOGOS_DATA } from './data.js'
@@ -982,7 +982,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-20:Managing State with useState Hook
+// STEP-20: Managing State with useState Hook
 // **************************************************
 // In this step, we introduce React's useState hook to manage state within the App component.
 // This ensures that the component can hold dynamic values that persist across renders.
@@ -1032,6 +1032,102 @@
 //                 <CounterButton onClick={() => handleClick(`Hello World ${counter}!`)}>
 //                     CLICK ME {counter}
 //                 </CounterButton>
+//             </div >
+//         </div >
+//     )
+// }
+
+// export default App
+// **************************************************
+
+// **************************************************
+// STEP-21: Conditional Rendering with React [ READ: docs/React-Conditional-Styling.md ]
+// **************************************************
+// import './App.css'
+// import { useState } from 'react'
+
+// import { LOGOS_DATA } from './data.js'
+// import LogoCard from './components/LogoCard/LogoCard.jsx'
+// import CounterButton from './components/CounterButton/CounterButton.jsx'
+// import IntroContainer from './components/IntroContainer/IntroContainer.jsx'
+
+// function App() {
+//     const [counter, updateCounter] = useState(0);
+
+//     function handleClick() {
+//         updateCounter(counter => counter + 1);
+//     }
+
+//     // 3️⃣:
+//     // function getCounterMessage() {
+//     //     return counter % 2 === 0 ? (
+//     //         <p style={{ color: 'blue', fontWeight: 'bold' }}>{counter} is even</p>
+//     //     ) : (
+//     //         <p style={{ color: 'orange', fontStyle: 'italic' }}>{counter} is odd</p>
+//     //     );
+//     // }
+
+//     // 6️⃣:
+//     // let content;
+
+//     // if (counter % 2 === 0) {
+//     //     content = <p style={{ color: 'blue', fontWeight: 'bold' }}>{counter} is even</p>;
+//     // } else {
+//     //     content = <p style={{ color: 'red', fontStyle: 'italic' }}>{counter} is odd</p>;
+//     // }
+
+//     return (
+//         <div>
+//             <div className='logo-container'>
+//                 {LOGOS_DATA.map((logo, index) => (
+//                     <LogoCard key={index} {...logo} />
+//                 ))}
+//             </div>
+//             <IntroContainer />
+
+//             <div className="card">
+//                 {/* 1️⃣ Using Ternary Operator  */}
+//                 <CounterButton onClick={handleClick}>
+//                     {counter % 2 === 0 ? (
+//                         <p style={{ color: 'khaki', fontWeight: 'bold' }}>{counter} is even</p>
+//                     ) : (
+//                         <p style={{ color: 'red', fontStyle: 'italic' }}>{counter} is odd</p>
+//                     )}
+//                 </CounterButton>
+
+//                 {/* 2️⃣ Using Logical && Operator */}
+//                 {/* <CounterButton onClick={handleClick}>
+//                     {counter % 2 === 0 && (
+//                         <p style={{ color: 'green', fontWeight: 'bold' }}>{counter} is even</p>
+//                     )}
+//                     {counter % 2 !== 0 && (
+//                         <p style={{ color: 'red', fontStyle: 'italic' }}>{counter} is odd</p>
+//                     )}
+//                 </CounterButton> */}
+
+//                 {/* 3️⃣ Using a Separate Function */}
+//                 {/* <CounterButton onClick={handleClick}>{getCounterMessage}</CounterButton> */}
+
+//                 {/* 4️⃣ Using CSS Classes */}
+//                 {/* <CounterButton onClick={handleClick}>
+//                     <p className={counter % 2 === 0 ? 'even' : 'odd'}>{counter} is {counter % 2 === 0 ? 'even' : 'odd'}</p>
+//                 </CounterButton> */}
+
+//                 {/* 5️⃣ Using Template Literals for Inline Styles */}
+//                 {/* <CounterButton onClick={handleClick}>
+//                     <p
+//                         style={{
+//                             color: counter % 2 === 0 ? 'purple' : 'brown',
+//                             fontWeight: counter % 2 === 0 ? 'bold' : 'normal',
+//                             fontStyle: counter % 2 !== 0 ? 'italic' : 'normal',
+//                         }}
+//                     >
+//                         {counter} is {counter % 2 === 0 ? 'even' : 'odd'}
+//                     </p>
+//                 </CounterButton> */}
+
+//                 {/* 6️⃣ Using `if-else` Statements Inside a Function */}
+//                 {/* <CounterButton onClick={handleClick}>{content}</CounterButton> */}
 //             </div >
 //         </div >
 //     )
