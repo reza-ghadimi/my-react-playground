@@ -24,4 +24,9 @@ var appElement = (
 );
 
 // Renders the app inside the root container.
+// React's Strict Mode intentionally renders components twice in development mode (but only in development, not production).
+// This happens only in React 18+ and is designed to detect side effects and ensure your code behaves correctly.
 reactRoot.render(appElement);
+
+// Step-19:
+// reactRoot.render(<App />);
