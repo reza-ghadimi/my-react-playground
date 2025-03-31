@@ -1,5 +1,11 @@
 // **************************************************
-// STEP-01: Initial Setup and Basic App Structure
+// **************************************************
+// A: Learning React Basics
+// **************************************************
+// **************************************************
+
+// **************************************************
+// A-01: Initial Setup and Basic App Structure
 // **************************************************
 // // Importing the necessary styles for the application
 // import './App.css'
@@ -27,7 +33,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-02: Refactoring the Code by Creating a Reusable LogoContainer Component
+// A-02: Refactoring the Code by Creating a Reusable LogoContainer Component
 // **************************************************
 // import './App.css'
 
@@ -68,7 +74,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-03: Enhancing the IntroContainer with Random Description Display
+// A-03: Enhancing the IntroContainer with Random Description Display
 // **************************************************
 // import './App.css'
 
@@ -123,7 +129,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-04: Refactoring to Store Random Description in a Variable
+// A-04: Refactoring to Store Random Description in a Variable
 // **************************************************
 // import './App.css'
 
@@ -180,7 +186,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-05: Refactoring to Use Proper Asset Imports and Component Structure
+// A-05: Refactoring to Use Proper Asset Imports and Component Structure
 // **************************************************
 // import './App.css'
 
@@ -250,7 +256,7 @@
 // **************************************************
 
 // // **************************************************
-// // STEP-06: Introducing Props for Reusability
+// // A-06: Introducing Props for Reusability
 // // **************************************************
 // import './App.css'
 
@@ -326,7 +332,7 @@
 
 
 // **************************************************
-// STEP-07: Changing props Name for Demonstration
+// A-07: Changing props Name for Demonstration
 // **************************************************
 // import './App.css'
 
@@ -400,7 +406,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-08: Using an External Data File (data.js) for Better Maintainability
+// A-08: Using an External Data File (data.js) for Better Maintainability
 // **************************************************
 // import './App.css'
 
@@ -495,7 +501,7 @@
 
 
 // **************************************************
-// STEP-09: Using the Spread Operator (...) Instead of Explicit Props
+// A-09: Using the Spread Operator (...) Instead of Explicit Props
 // **************************************************
 // import './App.css'
 
@@ -562,7 +568,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-10: Destructured Props
+// A-10: Destructured Props
 // **************************************************
 // import './App.css'
 
@@ -629,7 +635,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-11: Use .map() Instead of Manually Listing Components
+// A-11: Use .map() Instead of Manually Listing Components
 // **************************************************
 // import './App.css'
 
@@ -693,7 +699,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-12: Encapsulates logic (Each component is in its own file (components -> IntroContainer.jsx and LogoCard.jsx)).
+// A-12: Encapsulates logic (Each component is in its own file (components -> IntroContainer.jsx and LogoCard.jsx)).
 // Uncomment components/IntroContainer.jsx and components/LogoCard.jsx
 // **************************************************
 // import './App.css'
@@ -718,7 +724,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-13: Encapsulates logic
+// A-13: Encapsulates logic
 // **************************************************
 // import './App.css'
 // import { LOGOS_DATA } from './data.js'
@@ -743,7 +749,7 @@
 
 
 // **************************************************
-// STEP-14: Adds CounterButton component with children prop
+// A-14: Adds CounterButton component with children prop
 // **************************************************
 // - Introduced the CounterButton component to the App.
 // - Demonstrates the use of the `children` prop by passing button text as a child element.
@@ -783,7 +789,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-15: Adds click event handling to CounterButton
+// A-15: Adds click event handling to CounterButton
 // **************************************************
 // - Updated CounterButton to include an `onClick` event handler.
 // - Implemented the `handleClick` function, which logs "Hello World!" when the button is clicked.
@@ -819,7 +825,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-16: Makes CounterButton reusable with an onClick prop
+// A-16: Makes CounterButton reusable with an onClick prop
 // **************************************************
 // - Refactored CounterButton to accept an `onClick` prop, allowing the parent component to define the button's behavior.
 // - Removed the internal `handleClick` function to make the component more flexible.
@@ -859,7 +865,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-17: Renames onClick prop to blahBlah (likely unintended change)
+// A-17: Renames onClick prop to blahBlah (likely unintended change)
 // **************************************************
 // - Replaced `onClick` with `blahBlah`, making the prop name unconventional.
 // - This change does not affect functionality but reduces clarity and deviates from standard prop naming conventions.
@@ -899,7 +905,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-18: Adds a counter and dynamic message logging
+// A-18: Adds a counter and dynamic message logging
 // **************************************************
 // - Introduced a `counter` variable inside the App component.
 // - Implemented `handleClick(message)`, which increments `counter` and logs a message.
@@ -946,7 +952,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-19: Logging Execution [READ: docs/Understanding-React-Component-Execution.md]
+// A-19: Logging Execution [READ: docs/Understanding-React-Component-Execution.md]
 // **************************************************
 // import './App.css'
 // import { LOGOS_DATA } from './data.js'
@@ -982,9 +988,9 @@
 // **************************************************
 
 // **************************************************
-// STEP-20: Managing State with useState Hook
+// A-20: Managing State with useState Hook
 // **************************************************
-// In this step, we introduce React's useState hook to manage state within the App component.
+// In this A, we introduce React's useState hook to manage state within the App component.
 // This ensures that the component can hold dynamic values that persist across renders.
 
 // import './App.css'
@@ -1041,7 +1047,7 @@
 // **************************************************
 
 // **************************************************
-// STEP-21: Conditional Rendering with React [ READ: docs/React-Conditional-Styling.md ]
+// A-21: Conditional Rendering with React [ READ: docs/React-Conditional-Styling.md ]
 // **************************************************
 // import './App.css'
 // import { useState } from 'react'
@@ -1134,4 +1140,35 @@
 // }
 
 // export default App
+// **************************************************
+
+// **************************************************
+// A-22: Splitting Components By Feature & State
+// **************************************************
+// import './App.css'
+// import LogoCardContainer from './components/LogoCard/LogoCardContainer.jsx'
+// import IntroContainer from './components/IntroContainer/IntroContainer.jsx'
+// import CounterButtonCard from './components/CounterButton/CounterButtonCard.jsx'
+
+// function App() {
+
+//     console.log(`App Component Executing!`);
+
+//     return (
+//         <div>
+//             <LogoCardContainer />
+
+//             <IntroContainer />
+
+//             <CounterButtonCard />
+//         </div >
+//     )
+// }
+
+// export default App
+// **************************************************
+
+// **************************************************
+// **************************************************
+// **************************************************
 // **************************************************

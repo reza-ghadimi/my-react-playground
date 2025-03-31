@@ -17,16 +17,15 @@ var rootElement = document.getElementById('root');
 var reactRoot = createRoot(rootElement);
 
 // Wraps the App component in StrictMode to enable development warnings and checks.
-var appElement = (
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-
-// Renders the app inside the root container.
 // React's Strict Mode intentionally renders components twice in development mode (but only in development, not production).
 // This happens only in React 18+ and is designed to detect side effects and ensure your code behaves correctly.
-reactRoot.render(appElement);
+// var appElement = (
+//   <StrictMode>
+//     <App />
+//   </StrictMode>
+// );
 
-// Step-19:
-// reactRoot.render(<App />);
+// reactRoot.render(appElement);
+
+// Renders the app inside the root container.
+reactRoot.render(<App />);

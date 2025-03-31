@@ -1,11 +1,19 @@
-// STEP-14:
+// **************************************************
+// A-14:
+// **************************************************
 
+// **********
+// A-14.01:
+// **********
 // export default function CounterButton({ lable }) {
 //     return (
 //         <button>{lable}</button>
 //     )
 // }
 
+// **********
+// A-14.02:
+// **********
 // children is a special prop that represents any content passed between the opening and closing tags of the component when it's used.
 // export default function CounterButton(props) {
 //     return (
@@ -13,19 +21,28 @@
 //     )
 // }
 
+// **********
+// A-14.03:
+// **********
 // export default function CounterButton(blahBlah) {
 //     return (
 //         <button>{blahBlah.children}</button>
 //     )
 // }
 
+// **********
+// A-14.04:
+// **********
 // export default function CounterButton({ children }) {
 //     return (
 //         <button>{children}</button>
 //     )
 // }
+// **************************************************
 
-// STEP-15:
+// **************************************************
+// A-15:
+// **************************************************
 // export default function CounterButton({ children }) {
 //     // document.querySelector('button').addEventListener('click', () => {
 //     // });
@@ -52,38 +69,41 @@
 //         <button onClick={handleClick}>{children}</button>
 //     )
 // }
+// **************************************************
 
-// STEP-16:
+// **************************************************
+// A-16:
+// **************************************************
 // export default function CounterButton({ children, onClick }) {
 //     return (
 //         <button onClick={onClick}>{children}</button>
 //     )
 // }
+// **************************************************
 
-// STEP-17:
+// **************************************************
+// A-17:
+// **************************************************
 // export default function CounterButton({ children, blahBlah }) {
 //     return (
 //         <button onClick={blahBlah}>{children}</button>
 //     )
 // }
+// **************************************************
 
-// STEP-18:
+// **************************************************
+// A-18:
+// **************************************************
 // export default function CounterButton({ children, onClick }) {
 //     return (
 //         <button onClick={onClick}>{children}</button>
 //     )
 // }
+// **************************************************
 
-// STEP-19:
-// export default function CounterButton({ children, onClick }) {
-//     console.log(`CounterButton Component Executing!`);
-
-//     return (
-//         <button onClick={onClick}>{children}</button>
-//     )
-// }
-
-// STEP-20:
+// **************************************************
+// A-19:
+// **************************************************
 // export default function CounterButton({ children, onClick }) {
 //     console.log(`CounterButton Component Executing!`);
 
@@ -91,11 +111,36 @@
 //         <button onClick={onClick}>{children}</button>
 //     )
 // }
+// **************************************************
 
+// **************************************************
+// A-20:
+// **************************************************
+// export default function CounterButton({ children, onClick }) {
+//     console.log(`CounterButton Component Executing!`);
 
-// STEP-21:
+//     return (
+//         <button onClick={onClick}>{children}</button>
+//     )
+// }
+// **************************************************
+
+// **************************************************
+// A-21:
+// **************************************************
 // export default function CounterButton({ children, onClick }) {
 //     return (
 //         <button onClick={onClick}>{children}</button>
 //     )
 // }
+// **************************************************
+
+// **************************************************
+// A-22:
+// **************************************************
+// export default function CounterButton({ children, onClick }) {
+//     return (
+//         <button onClick={onClick}>{children}</button>
+//     )
+// }
+// **************************************************
