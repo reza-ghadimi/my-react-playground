@@ -1,15 +1,15 @@
 
 ---
 
-# 🧠 Understanding `Ref` and `Portal` in React
+# 🧠 Understanding `Ref`, `Portal`, and `useImperativeHandle` in React
 
-This document explains two powerful React concepts — **Refs** and **Portals** — with examples, use-cases, and best practices.
+This document explains three powerful React concepts — **Refs**, **Portals**, and **`useImperativeHandle`** — with examples, use-cases, and best practices.
 
 ---
 
 ## 📌 Table of Contents
 
-- [🧠 Understanding `Ref` and `Portal` in React](#-understanding-ref-and-portal-in-react)
+- [🧠 Understanding `Ref`, `Portal`, and `useImperativeHandle` in React](#-understanding-ref-portal-and-useimperativehandle-in-react)
   - [📌 Table of Contents](#-table-of-contents)
   - [🔍 What is a Ref?](#-what-is-a-ref)
   - [💡 When to Use Refs](#-when-to-use-refs)
@@ -21,6 +21,7 @@ This document explains two powerful React concepts — **Refs** and **Portals** 
     - [🔧 How to Use Portals](#-how-to-use-portals)
   - [📦 Example Use of Portals](#-example-use-of-portals)
   - [🔗 Refs with Portals](#-refs-with-portals)
+  - [🔑 Using `useImperativeHandle`](#-using-useimperativehandle)
   - [🆚 Ref vs useState](#-ref-vs-usestate)
     - [🔍 Core Differences](#-core-differences)
     - [✅ When to Use Each](#-when-to-use-each)
@@ -201,7 +202,7 @@ function ModalWithRef() {
 
   useEffect(() => {
     inputRef.current.focus();
-  }, []);
+  }, []); // Focus the input when the modal is opened
 
   return ReactDOM.createPortal(
     <input ref={inputRef} />,
@@ -209,6 +210,57 @@ function ModalWithRef() {
   );
 }
 ```
+
+---
+
+## 🔑 Using `useImperativeHandle`
+
+`useImperativeHandle` is a React hook that allows you to modify the instance value exposed to parent components when using `ref`. It is often used in conjunction with `forwardRef` to expose specific methods or properties to the parent.
+
+```jsx
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
+
+const FancyInput = forwardRef((props, ref) => {
+  const [value, setValue] = useState("");
+
+  // Use useImperativeHandle to expose custom methods to parent
+  useImperativeHandle(ref, () => ({
+    focus() {
+      inputRef.current.focus();
+    },
+    clear() {
+      setValue("");
+    }
+  }));
+
+  const inputRef = useRef();
+
+  return (
+    <input
+      ref={inputRef}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+});
+
+function Parent() {
+  const inputRef = useRef();
+
+  return (
+    <>
+      <FancyInput ref={inputRef} />
+      <button onClick={() => inputRef.current.focus()}>Focus Input</button>
+      <button onClick={() => inputRef.current.clear()}>Clear Input</button>
+    </>
+  );
+}
+```
+
+In this example, `useImperativeHandle` is used to expose the `focus` and `clear` methods from the `FancyInput` component to the parent.
+
+📘 **Docs**:
+- [React useImperativeHandle – React Docs](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
 
 ---
 
