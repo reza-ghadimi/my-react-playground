@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Renders a list of places or fallback text and handles selection via onSelectPlace
 // **************************************************
 export default function Places({ title, places, fallbackText, onSelectPlace }) {
   return (

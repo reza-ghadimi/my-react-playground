@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Uses useImperativeHandle to manually open/close the modal via ref.
 // **************************************************
 // import { createPortal } from 'react-dom';
 // import { useRef, useImperativeHandle } from 'react';
@@ -28,7 +28,7 @@
 // **************************************************
 
 // **************************************************
-// A-06/00:
+// A-06/00: Simplifies modal using the open prop to control visibility declaratively.
 // **************************************************
 // import { createPortal } from 'react-dom';
 
@@ -43,7 +43,7 @@
 // **************************************************
 
 // **************************************************
-// A-06/01:
+// A-06/01: Attempts imperative control with useRef, but incorrectly initializes it.
 // **************************************************
 // import { useRef } from 'react';
 // import { createPortal } from 'react-dom';
@@ -68,7 +68,7 @@
 // **************************************************
 
 // **************************************************
-// A-06/02:
+// A-06/02: Fixes null safety with optional chaining but still outside useEffect.
 // **************************************************
 // import { useRef } from 'react';
 // import { createPortal } from 'react-dom';
@@ -94,7 +94,7 @@
 
 
 // **************************************************
-// A-06/02:
+// A-06/02: Introduces useEffect for safer DOM interaction on mount.
 // **************************************************
 // import { useEffect, useRef } from 'react';
 // import { createPortal } from 'react-dom';
@@ -121,7 +121,7 @@
 // **************************************************
 
 // **************************************************
-// A-06/03:
+// A-06/03: Adds open as dependency in useEffect to react to state changes.
 // **************************************************
 // import { useEffect, useRef } from 'react';
 // import { createPortal } from 'react-dom';
@@ -150,7 +150,7 @@
 
 
 // **************************************************
-// A-07:
+// A-07: Final polished version with dynamic open/close behavior and debug logging
 // **************************************************
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';

@@ -1,10 +1,10 @@
 // **************************************************
-// A-07/05:
+// A-07/05: Displays visual countdown with internal ticking timer using setInterval.
 // **************************************************
 import { useState, useEffect } from "react";
 
 export default function ProgressBar({ max }) {
-    const [remainingTimeInMillisecond, setRemainingTime] = useState(max);
+    const [remainingTime, setRemainingTime] = useState(max);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -16,6 +16,6 @@ export default function ProgressBar({ max }) {
         }
     });
 
-    return (<progress value={remainingTimeInMillisecond} max={max} />);
+    return (<progress value={remainingTime} max={max} />);
 }
 // **************************************************

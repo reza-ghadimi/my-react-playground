@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: This version sets up the basic app with modal functionality and state to track selected places for deletion.
 // **************************************************
 // import { useRef, useState } from 'react';
 
@@ -78,7 +78,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-02: A simple version that renders places and sorts them by proximity to the user's location but doesn't have any modal or deletion logic.
 // **************************************************
 // import { useRef, useState } from 'react';
 
@@ -174,7 +174,7 @@
 // **************************************************
 
 // **************************************************
-// A-03:
+// A-03: Adds state handling for tracking a selected place and triggers a modal on selection for removal.
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -275,7 +275,7 @@
 
 
 // **************************************************
-// A-04:
+// A-04: Caching selected places in localStorage.
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -394,7 +394,7 @@
 // **************************************************
 
 // **************************************************
-// A-05/00:
+// A-05/00: Use cached detail to show on startup to set availablePlaces (via useEffect).
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -415,7 +415,7 @@
 //   const [pickedPlaces, setPickedPlaces] = useState([]);
 //   const [availablePlaces, sortAvailablePlaces] = useState([]);
 
-//   // once, after App component execuation
+//   // Run once on component mount to fetch user location and sort places by distance
 //   useEffect(() => {
 //     navigator.geolocation.getCurrentPosition((userPosition) => {
 //       const sortedPlaces = sortPlacesByDistance(
@@ -523,7 +523,7 @@
 // **************************************************
 
 // **************************************************
-// A-05/01:
+// A-05/01: Avoid unnecessary use of useEffect for simple logic; handle without side effects.
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -538,7 +538,7 @@
 
 //   const selectedPlacesCacheKey = 'selectedPlaces';
 
-//   // Re-Run after each change state
+//   // Trigger re-render when state changes
 //   const selectedPlaceIds = JSON.parse(localStorage.getItem(selectedPlacesCacheKey)) || [];
 //   const selectedItems = selectedPlaceIds.map((selectedPlaceId) =>
 //     AVAILABLE_PLACES.find((place) => place.id === selectedPlaceId)
@@ -648,7 +648,7 @@
 // **************************************************
 
 // **************************************************
-// A-05/02:
+// A-05/02: Run once on component mount (fix re-render issue when state changes)
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -660,7 +660,7 @@
 // import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 
 
-// // Run only in the first time of execution
+// // Run only once when the component is first mounted
 // const selectedPlacesCacheKey = 'selectedPlaces';
 // const selectedPlaceIds = JSON.parse(localStorage.getItem(selectedPlacesCacheKey)) || [];
 // const selectedItems = selectedPlaceIds.map((selectedPlaceId) =>
@@ -774,7 +774,7 @@
 
 
 // **************************************************
-// A-06:
+// A-06: Introduces open state to control modal visibility declaratively (instead of using ref).
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -785,8 +785,6 @@
 // import { sortPlacesByDistance } from './js/location.js';
 // import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 
-
-// // Run only in the first time of execution
 // const selectedPlacesCacheKey = 'selectedPlaces';
 // const selectedPlaceIds = JSON.parse(localStorage.getItem(selectedPlacesCacheKey)) || [];
 // const selectedItems = selectedPlaceIds.map((selectedPlaceId) =>
@@ -899,7 +897,6 @@
 
 // export default App;
 // **************************************************
-
 
 // **************************************************
 // A-07/00:
@@ -928,7 +925,6 @@
 //   const [availablePlaces, sortAvailablePlaces] = useState([]);
 //   const [pickedPlaces, setPickedPlaces] = useState(selectedItems);
 
-//   // once, after App component execuation
 //   useEffect(() => {
 //     navigator.geolocation.getCurrentPosition((userPosition) => {
 //       const sortedPlaces = sortPlacesByDistance(
@@ -1028,7 +1024,7 @@
 // **************************************************
 
 // **************************************************
-// A-07/01:
+// A-07/01: Adds auto-confirm feature for modal with a delay.
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -1121,7 +1117,7 @@
 //         {isModalOpened && <DeleteConfirmation
 //           onCancel={handleStopRemovePlace}
 //           onConfirm={handleRemovePlace}
-//           automaticConfirmationTimeInMillisecond={3000}
+//           autoConfirmDurationInMs={3000}
 //         />}
 //       </Modal>
 
@@ -1154,9 +1150,8 @@
 // export default App;
 // **************************************************
 
-
 // **************************************************
-// A-07/02:
+// A-07/02: Cleaned up modal handling, ensuring the auto-confirm feature works with proper delays.
 // **************************************************
 // import { useRef, useState, useEffect } from 'react';
 
@@ -1249,7 +1244,7 @@
 //         {isModalOpened && <DeleteConfirmation
 //           onCancel={handleStopRemovePlace}
 //           onConfirm={handleRemovePlace}
-//           automaticConfirmationTimeInMillisecond={3000}
+//           autoConfirmDurationInMs={3000}
 //         />}
 //       </Modal>
 
@@ -1282,9 +1277,8 @@
 // export default App;
 // **************************************************
 
-
 // **************************************************
-// A-07/03:
+// A-07/03:  Refactored handleRemovePlace to use useCallback for better performance and memoization.
 // **************************************************
 import { useRef, useState, useEffect, useCallback } from 'react';
 
@@ -1376,7 +1370,7 @@ function App() {
         {isModalOpened && <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
-          automaticConfirmationTimeInMillisecond={3000}
+          autoConfirmDurationInMs={3000}
         />}
       </Modal>
 
