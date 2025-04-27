@@ -1177,7 +1177,6 @@
 //   const [availablePlaces, sortAvailablePlaces] = useState([]);
 //   const [pickedPlaces, setPickedPlaces] = useState(selectedItems);
 
-//   // once, after App component execuation
 //   useEffect(() => {
 //     navigator.geolocation.getCurrentPosition((userPosition) => {
 //       const sortedPlaces = sortPlacesByDistance(
