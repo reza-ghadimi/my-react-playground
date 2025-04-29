@@ -546,38 +546,48 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 
 import logoImage from './assets/logo.png';
+
+import { sortPlacesByDistance } from './js/location.js';
+import { getAvailablePlacesAsync, getUserSelectedPlacesAsync, updateUserSelectedPlacesAsync } from './js/http.js';
+
 import Modal from './components/Modal.jsx';
 import Places from './components/Places.jsx';
-import { sortPlacesByDistance } from './js/location.js';
+import ErrorModal from './components/ErrorModal.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
-import { getAvailablePlacesAsync, getUserSelectedPlacesAsync, updateUserSelectedPlacesAsync } from './js/http.js';
 
 function App() {
 
+  const defaultErrorMessage = 'an unhandled error occurred!';
+
   const selectedPlace = useRef();
+  const [error, setError] = useState();
   const [pickedPlaces, setPickedPlaces] = useState([]);
   const [isModalOpened, setModalIsOpened] = useState(false);
   const [availablePlaces, setAvailablePlaces] = useState([]);
+  const hasError = error != null && error != undefined && error != '';
 
   useEffect(() => {
     async function fetchAndSortPlacesAsync() {
-      const position = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+        const places = await getAvailablePlacesAsync();
 
-      const places = await getAvailablePlacesAsync();
+        const sortedPlaces = sortPlacesByDistance(
+          places,
+          position.coords.latitude,
+          position.coords.longitude
+        );
 
-      const sortedPlaces = sortPlacesByDistance(
-        places,
-        position.coords.latitude,
-        position.coords.longitude
-      );
+        setAvailablePlaces(sortedPlaces);
 
-      setAvailablePlaces(sortedPlaces);
+        const selectedItems = await getUserSelectedPlacesAsync();
 
-      const selectedItems = await getUserSelectedPlacesAsync();
-
-      setPickedPlaces(selectedItems);
+        setPickedPlaces(selectedItems);
+      } catch (error) {
+        setError(error ?? defaultErrorMessage);
+      }
     }
 
     fetchAndSortPlacesAsync();
@@ -594,7 +604,6 @@ function App() {
   }
 
   function handleSelectPlace(id) {
-
     setPickedPlaces((prevPickedPlaces) => {
       const place = availablePlaces.find((place) => place.id === id);
 
@@ -605,10 +614,17 @@ function App() {
       return [place, ...prevPickedPlaces];
     });
 
-    if (pickedPlaces.map(current => current.id).indexOf(id) === -1) {
-      const updatedPlaceIds = [id, ...pickedPlaces.map((current) => current.id)];
+    try {
+      if (pickedPlaces.map(current => current.id).indexOf(id) === -1) {
+        const updatedPlaceIds = [id, ...pickedPlaces.map((current) => current.id)];
 
-      updateUserSelectedPlacesAsync(updatedPlaceIds);
+        updateUserSelectedPlacesAsync(updatedPlaceIds);
+      }
+    } catch (error) {
+      console.log(error);
+      setError(error?.message || defaultErrorMessage);
+
+      setPickedPlaces(pickedPlaces);
     }
   }
 
@@ -619,11 +635,19 @@ function App() {
 
     setModalIsOpened(false);
 
-    const updatedPlaceIds = pickedPlaces
-      .filter((storedPlaceId) => storedPlaceId != selectedPlace.current)
-      .map(current => current.id);
+    try {
+      const updatedPlaceIds = pickedPlaces
+        .filter((storedPlaceId) => storedPlaceId != selectedPlace.current)
+        .map(current => current.id);
 
-    updateUserSelectedPlacesAsync(updatedPlaceIds);
+      updateUserSelectedPlacesAsync(updatedPlaceIds);
+
+    } catch (error) {
+      console.log(error);
+      setError(error?.message || defaultErrorMessage);
+
+      setPickedPlaces(pickedPlaces);
+    }
   });
 
   return (
@@ -645,18 +669,26 @@ function App() {
         </p>
       </header>
       <main>
-        <Places
-          title="I'd like to visit ..."
-          fallbackText={'Select the places you would like to visit below.'}
-          places={pickedPlaces}
-          onSelectPlace={handleStartRemovePlace}
-        />
-        <Places
-          title="Available Places"
-          places={availablePlaces}
-          onSelectPlace={handleSelectPlace}
-          fallbackText="sorting places by distance..."
-        />
+        {hasError ? (
+          <ErrorModal
+            message={error}
+            onConfirm={() => setError(null)}
+            title='unhandled exception!'
+          />) : (
+          <>
+            <Places
+              title="I'd like to visit ..."
+              fallbackText={'Select the places you would like to visit below.'}
+              places={pickedPlaces}
+              onSelectPlace={handleStartRemovePlace}
+            />
+            <Places
+              title="Available Places"
+              places={availablePlaces}
+              onSelectPlace={handleSelectPlace}
+              fallbackText="sorting places by distance..."
+            />
+          </>)}
       </main>
     </>
   );
