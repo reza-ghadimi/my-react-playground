@@ -184,11 +184,11 @@ function App() {
     hasError: fetchingAvailablePlacesHasError,
     errorMessage: fetchingAvailablePlacesErrorMessage,
     setData: setAvailablePlaces,
-  } = useFetch(
-    getAvailablePlacesAsync,
-    [],
-    fetchUserLocation,
-    (places) => {
+  } = useFetch({
+    fetchDataAsync: getAvailablePlacesAsync,
+    defaultValue: [],
+    beforeFetchAsync: fetchUserLocation,
+    afterFetchAsync: (places) => {
       const position = userPositionRef.current;
       if (!position) {
         return;
@@ -202,7 +202,7 @@ function App() {
 
       setAvailablePlaces(sorted);
     }
-  );
+  });
 
   const {
     data: pickedPlaces,
@@ -210,7 +210,10 @@ function App() {
     hasError: fetchingPickedPlacesHasError,
     setData: setPickedPlaces,
     errorMessage: fetchingPickedPlacesErrorMessage,
-  } = useFetch(getUserSelectedPlacesAsync, []);
+  } = useFetch({
+    fetchDataAsync: getUserSelectedPlacesAsync,
+    defaultValue: []
+  });
 
 
   function handleStartRemovePlace(id) {

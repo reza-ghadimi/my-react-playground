@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useFetch(fetchDataAsync, defaultValue, beforeFetchAsync = null, afterFetchAsync = null) {
+export default function useFetch({ fetchDataAsync, defaultValue, beforeFetchAsync = null, afterFetchAsync = null }) {
     const [hasError, setHasError] = useState(false);
     const [isFetching, setIsFetching] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
