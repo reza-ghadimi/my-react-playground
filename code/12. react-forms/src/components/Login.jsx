@@ -707,31 +707,314 @@
 
 
 
-import { useRef, useState } from "react";
+// import { useRef, useState } from "react";
+
+// export default function Login() {
+
+//   const passwordRef = useRef(null);
+//   const emailAddressRef = useRef(null);
+//   const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false);
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const password = passwordRef.current?.value;
+
+//     const data = new FormData(event.target);
+//     const confirmPassword = data.get('confirm-password');
+
+//     console.log(`Password: ${password} - Confirm Password: ${confirmPassword}`);
+
+//     if (password != confirmPassword) {
+//       setPasswordsAreNotEqual(true);
+
+//       return;
+//     }
+
+//     setPasswordsAreNotEqual(false);
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <h2>Login</h2>
+
+//       <div className="control-row">
+//         <div className="control no-margin">
+//           <label htmlFor="email">Email</label>
+//           <input
+//             id="email"
+//             type="email"
+//             name="email"
+//             required
+//             ref={emailAddressRef}
+//           />
+//         </div>
+//       </div>
+
+//       <div className="control-row">
+//         <div className="control no-margin">
+//           <label htmlFor="password">Password</label>
+//           <input
+//             id="password"
+//             type="password"
+//             name="password"
+//             required
+//             minLength={6}
+//             maxLength={8}
+//             ref={passwordRef}
+//           />
+//         </div>
+
+//         <div className="control no-margin">
+//           <label htmlFor="confirm-password">Confirm Password</label>
+//           <input
+//             id="confirm-password"
+//             type="password"
+//             name="confirm-password"
+//             required
+//             minLength={6}
+//             maxLength={8}
+//           />
+
+//           <div className="control-error">
+//             {passwordsAreNotEqual && <p>Confirm password must be equal to Password!</p>}
+//           </div>
+//         </div>
+//       </div>
+
+//       <p className="form-actions">
+//         <button className="button button-flat" type='reset'>Reset</button>
+//         <button className="button">Login</button>
+//       </p>
+//     </form>
+//   );
+// }
+
+// import { useState } from 'react';
+
+// import Input from './Input.jsx';
+
+// export default function Login() {
+//   const [enteredValues, setEnteredValues] = useState({
+//     email: '',
+//     password: '',
+//   });
+
+//   const [didEdit, setDidEdit] = useState({
+//     email: false,
+//     password: false,
+//   });
+
+//   const emailIsInvalid = didEdit.email && !enteredValues.email.includes('@');
+//   const passwordIsInvalid = didEdit.password && enteredValues.password.trim().length < 6;
+
+//   function handleReset() {
+//     setEnteredValues({
+//       email: '',
+//       password: '',
+//     });
+
+//     setDidEdit({
+//       email: false,
+//       password: false,
+//     });
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     console.log(enteredValues);
+//   }
+
+//   function handleInputChange(identifier, value) {
+//     setEnteredValues((prevValues) => ({
+//       ...prevValues,
+//       [identifier]: value,
+//     }));
+
+//     setDidEdit((prevEdit) => ({
+//       ...prevEdit,
+//       [identifier]: false,
+//     }));
+//   }
+
+//   function handleInputBlur(identifier) {
+//     setDidEdit((prevEdit) => ({
+//       ...prevEdit,
+//       [identifier]: true,
+//     }));
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <h2>Login</h2>
+
+//       <div className="control-row">
+//         <Input
+//           id="email"
+//           type="email"
+//           name="email"
+//           label="Email"
+//           error={emailIsInvalid && 'Please enter a valid email!'}
+
+//           value={enteredValues.email}
+//           onBlur={() => handleInputBlur('email')}
+//           onChange={(event) => handleInputChange('email', event.target.value)}
+//         />
+
+//         <Input
+//           id="password"
+//           type="password"
+//           name="password"
+//           label="Password"
+//           error={passwordIsInvalid && 'Please enter a valid password!'}
+
+//           value={enteredValues.password}
+//           onBlur={() => handleInputBlur('password')}
+//           onChange={(event) => handleInputChange('password', event.target.value)}
+//         />
+//       </div>
+
+//       <p className="form-actions">
+//         <button className="button button-flat" type="reset" onClick={handleReset}>Reset</button>
+//         <button className="button">Login</button>
+//       </p>
+//     </form>
+//   );
+// }
+
+
+// import { useState } from 'react';
+
+// import Input from './Input.jsx';
+// import { isEmail, isNotEmpty, hasMinLength } from '../infrastructure/validation.js';
+
+// export default function Login() {
+//   const [enteredValues, setEnteredValues] = useState({
+//     email: '',
+//     password: '',
+//   });
+
+//   const [didEdit, setDidEdit] = useState({
+//     email: false,
+//     password: false,
+//   });
+
+//   const emailIsInvalid =
+//     didEdit.email &&
+//     (!isEmail(enteredValues.email) || !isNotEmpty(enteredValues.email));
+
+//   const passwordIsInvalid =
+//     didEdit.password && !hasMinLength(enteredValues.password, 6);
+
+//   function handleReset() {
+//     setEnteredValues({
+//       email: '',
+//       password: '',
+//     });
+
+//     setDidEdit({
+//       email: false,
+//       password: false,
+//     });
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     console.log(enteredValues);
+//   }
+
+//   function handleInputChange(identifier, value) {
+//     setEnteredValues((prevValues) => ({
+//       ...prevValues,
+//       [identifier]: value,
+//     }));
+
+//     setDidEdit((prevEdit) => ({
+//       ...prevEdit,
+//       [identifier]: false,
+//     }));
+//   }
+
+//   function handleInputBlur(identifier) {
+//     setDidEdit((prevEdit) => ({
+//       ...prevEdit,
+//       [identifier]: true,
+//     }));
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <h2>Login</h2>
+
+//       <div className="control-row">
+//         <Input
+//           id="email"
+//           // type="email"
+//           name="email"
+//           label="Email"
+//           error={emailIsInvalid && 'Please enter a valid email!'}
+
+//           value={enteredValues.email}
+//           onBlur={() => handleInputBlur('email')}
+//           onChange={(event) => handleInputChange('email', event.target.value)}
+//         />
+
+//         <Input
+//           id="password"
+//           type="password"
+//           name="password"
+//           label="Password"
+//           error={passwordIsInvalid && 'Please enter a valid password!'}
+
+//           value={enteredValues.password}
+//           onBlur={() => handleInputBlur('password')}
+//           onChange={(event) => handleInputChange('password', event.target.value)}
+//         />
+//       </div>
+
+//       <p className="form-actions">
+//         <button className="button button-flat" type="reset" onClick={handleReset}>Reset</button>
+//         <button className="button">Login</button>
+//       </p>
+//     </form>
+//   );
+// }
+
+
+import Input from './Input.jsx';
+import { useInput } from '../hooks/useInput.js';
+import { isEmail, isNotEmpty, hasMinLength } from '../infrastructure/validation.js';
 
 export default function Login() {
+  const {
+    value: emailValue,
+    handleInputChange: handleEmailChange,
+    handleInputBlur: handleEmailBlur,
+    hasError: emailHasError,
+  } = useInput('', (value) => isEmail(value) && isNotEmpty(value));
 
-  const passwordRef = useRef(null);
-  const emailAddressRef = useRef(null);
-  const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false);
+  const {
+    value: passwordValue,
+    handleInputChange: handlePasswordChange,
+    handleInputBlur: handlePasswordBlur,
+    hasError: passwordHasError,
+  } = useInput('', (value) => hasMinLength(value, 6));
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const password = passwordRef.current?.value;
-
-    const data = new FormData(event.target);
-    const confirmPassword = data.get('confirm-password');
-
-    console.log(`Password: ${password} - Confirm Password: ${confirmPassword}`);
-
-    if (password != confirmPassword) {
-      setPasswordsAreNotEqual(true);
-
+    if (emailHasError || passwordHasError) {
       return;
     }
 
-    setPasswordsAreNotEqual(false);
+    console.log(emailValue, passwordValue);
+  }
+
+  function handleReset() {
+    useInput('', (value) => hasMinLength(value, 6));
+    useInput('', (value) => isEmail(value) && isNotEmpty(value));
   }
 
   return (
@@ -739,51 +1022,31 @@ export default function Login() {
       <h2>Login</h2>
 
       <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            required
-            ref={emailAddressRef}
-          />
-        </div>
-      </div>
+        <Input
+          label="Email"
+          id="email"
+          type="email"
+          name="email"
+          onBlur={handleEmailBlur}
+          onChange={handleEmailChange}
+          value={emailValue}
+          error={emailHasError && 'Please enter a valid email!'}
+        />
 
-      <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            required
-            minLength={6}
-            maxLength={8}
-            ref={passwordRef}
-          />
-        </div>
-
-        <div className="control no-margin">
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input
-            id="confirm-password"
-            type="password"
-            name="confirm-password"
-            required
-            minLength={6}
-            maxLength={8}
-          />
-
-          <div className="control-error">
-            {passwordsAreNotEqual && <p>Confirm password must be equal to Password!</p>}
-          </div>
-        </div>
+        <Input
+          label="Password"
+          id="password"
+          type="password"
+          name="password"
+          onChange={handlePasswordChange}
+          onBlur={handlePasswordBlur}
+          value={passwordValue}
+          error={passwordHasError && 'Please enter a valid password!'}
+        />
       </div>
 
       <p className="form-actions">
-        <button className="button button-flat" type='reset'>Reset</button>
+        <button className="button button-flat" type="reset" onClick={handleReset}>Reset</button>
         <button className="button">Login</button>
       </p>
     </form>
