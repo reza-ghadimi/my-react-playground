@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Combines Header and Counter with local logic for input and button to pass count state.
 // **************************************************
 // import { useState } from 'react';
 
@@ -41,7 +41,7 @@
 // **************************************************
 
 // **************************************************
-// A-03:
+// A-02: Delegates configuration logic to ConfigureCounter, streamlining App by lifting state up.
 // **************************************************
 // import { useState } from 'react';
 
@@ -70,7 +70,7 @@
 // **************************************************
 
 // **************************************************
-// A-03:
+// A-03:  Adds a key to Counter to force re-mounting when chosenCount changes, ensuring internal state reset.
 // **************************************************
 import { useState } from 'react';
 

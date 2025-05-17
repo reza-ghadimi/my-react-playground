@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Static place data with localStorage caching and sorting by user location.
 // **************************************************
 // import { useRef, useState, useEffect, useCallback } from 'react';
 
@@ -120,7 +120,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-02: Loads place data asynchronously via fetch, but with timing issues on data availability.
 // **************************************************
 // import { useRef, useState, useEffect, useCallback } from 'react';
 
@@ -250,7 +250,7 @@
 
 
 // **************************************************
-// A-02:
+// A-03: Attempts async/await for fetching places, but incorrectly used outside React lifecycle.
 // **************************************************
 // import { useRef, useState, useEffect, useCallback } from 'react';
 
@@ -380,7 +380,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-04: Correct async fetching inside useEffect with proper state management and geolocation.
 // **************************************************
 // import { useRef, useState, useEffect, useCallback } from 'react';
 
@@ -541,7 +541,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-05: Fully refined async data handling with error management, remote updates, and clean UI state.
 // **************************************************
 import { useRef, useState, useEffect, useCallback } from 'react';
 

@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Encapsulates input and set logic, lifting the chosen number to App for centralized state management.
+// **************************************************
 import { useState } from "react";
 
 import { log } from '../../log.js';
@@ -24,3 +27,4 @@ export default function ConfigureCounter({ setChosenCount }) {
         </section>
     )
 }
+// **************************************************

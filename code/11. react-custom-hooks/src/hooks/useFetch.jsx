@@ -1,3 +1,8 @@
+// **************************************************
+// A-02:
+// Custom React hook that manages asynchronous data fetching with optional pre- and post-fetch callbacks, 
+// handling loading, error states, and providing fetched data with state setters.
+// **************************************************
 import { useState, useEffect } from "react";
 
 export default function useFetch({ fetchDataAsync, defaultValue, beforeFetchAsync = null, afterFetchAsync = null }) {
@@ -40,3 +45,4 @@ export default function useFetch({ fetchDataAsync, defaultValue, beforeFetchAsyn
         errorMessage,
     };
 }
+// **************************************************

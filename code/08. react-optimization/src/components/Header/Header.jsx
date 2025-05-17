@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Displays static app branding and integrates as a layout component reused at the top of App.
 // **************************************************
 import { log } from '../../log.js';
 import logoImage from '../../assets/logo.png';

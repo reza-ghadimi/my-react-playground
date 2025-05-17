@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01:  Basic counter with local state, increment/decrement, and static prime check on initial value.
 // **************************************************
 // import { useState } from 'react';
 
@@ -65,7 +65,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-02:  Adds memoization (React.memo) to prevent unnecessary re-renders of the Counter component.// **************************************************
 // **************************************************
 // import { memo, useState } from 'react';
 
@@ -133,9 +133,8 @@
 // export default Counter;
 // **************************************************
 
-
 // **************************************************
-// A-03:
+// A-03: Uses useCallback for handlers and prepares for change-tracking logic by stabilizing callbacks.
 // **************************************************
 // import { memo, useState, useCallback } from 'react';
 
@@ -204,7 +203,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-04:  Applies useMemo to optimize prime check and prepares for keyed history-based tracking.
 // **************************************************
 // import { memo, useState, useMemo, useCallback } from 'react';
 
@@ -273,7 +272,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-05: Introduces counterChanges array to track full history of counter state changes for rendering.
 // **************************************************
 // import { memo, useState, useMemo, useCallback } from 'react';
 
@@ -358,7 +357,7 @@
 // **************************************************
 
 // **************************************************
-// A-02:
+// A-06: Enhances counterChanges to include unique IDs for each entry, ensuring reliable list rendering.
 // **************************************************
 import { memo, useState, useMemo, useCallback } from 'react';
 

@@ -1,5 +1,5 @@
 // **************************************************
-// A-01:
+// A-01: Displays the current count, styled conditionally for negative values.
 // **************************************************
 import { log } from '../../log.js';
 

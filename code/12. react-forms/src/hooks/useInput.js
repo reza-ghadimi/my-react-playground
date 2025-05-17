@@ -1,3 +1,6 @@
+// **************************************************
+// A-16: useInput hook: Manages input value, tracks if the input was touched (edited), and validates the value based on a provided validation function.
+// **************************************************
 import { useState } from 'react';
 
 export function useInput(defaultValue, validationFunction) {
@@ -23,3 +26,4 @@ export function useInput(defaultValue, validationFunction) {
         hasError: didEdit && !valueIsValid
     };
 }
+// **************************************************

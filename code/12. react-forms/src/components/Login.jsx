@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Basic static login form with no logic or interactivity.
+// **************************************************
 // export default function Login() {
 //   return (
 //     <form>
@@ -22,8 +25,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-02: Added click handlers for login and reset buttons that log messages.
+// **************************************************
 // export default function Login() {
 
 //   // Send Http Request due to the usage of <form></form> and button type (submit by default)
@@ -60,9 +66,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
-
+// **************************************************
+// A-03: Prevented form submission by setting login button type="button".
+// **************************************************
 // export default function Login() {
 
 //   // do not Send Http Request due to the button type button
@@ -99,9 +107,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
-
+// **************************************************
+// A-04: Prevented default form submission using event.preventDefault() in the login handler.
+// **************************************************
 // export default function Login() {
 
 //   // do not Send Http Request when the email is not in a valid format
@@ -140,7 +150,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
+// **************************************************
+// A-05: Introduced useState to manage input values and reset them to empty strings.
+// **************************************************
 // import { useState } from "react";
 
 // export default function Login() {
@@ -204,8 +218,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-06: Combined email and password state into a single state object for better management.
+// **************************************************
 // import { useState } from "react";
 
 // export default function Login() {
@@ -280,8 +297,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-07: Switched from state-based inputs to useRef for uncontrolled components.
+// **************************************************
 // import { useRef } from "react";
 
 // export default function Login() {
@@ -337,8 +357,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-08: Simplified reset functionality using the native reset button type.
+// **************************************************
 // import { useRef } from "react";
 
 // export default function Login() {
@@ -387,7 +410,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
+// **************************************************
+// A-09: Added basic email validation with an inline error message.
+// **************************************************
 // import { useState } from "react";
 
 // export default function Login() {
@@ -464,9 +491,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
-
+// **************************************************
+// A-10: Implemented "dirty" state tracking to show validation errors only after user interaction.
+// **************************************************
 // import { useState } from "react";
 
 // export default function Login() {
@@ -561,8 +590,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-11: Replaced blur tracking with a final validation check inside handleSubmit.
+// **************************************************
 // import { useState } from "react";
 
 // export default function Login() {
@@ -652,10 +684,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
-
-
+// **************************************************
+// A-12: Introduced useRef to directly access form input values without state.
+// **************************************************
 // import { useRef } from "react";
 
 // export default function Login() {
@@ -704,9 +737,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
-
+// **************************************************
+// A-13: Added password confirmation validation comparing password and confirm password inputs using refs and state.
+// **************************************************
 // import { useRef, useState } from "react";
 
 // export default function Login() {
@@ -789,7 +824,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
+// **************************************************
+// A-14: Implemented input-level validation on blur and change events with state tracking for touched inputs.
+// **************************************************
 // import { useState } from 'react';
 
 // import Input from './Input.jsx';
@@ -882,8 +921,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-15: Enhanced validation by importing reusable validation helpers and conditionally showing error messages.
+// **************************************************
 // import { useState } from 'react';
 
 // import Input from './Input.jsx';
@@ -981,8 +1023,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-16: Refactored validation logic using a custom useInput hook for cleaner state and validation management.
+// **************************************************
 import Input from './Input.jsx';
 import { useInput } from '../hooks/useInput.js';
 import { isEmail, isNotEmpty, hasMinLength } from '../infrastructure/validation.js';
@@ -1052,3 +1097,4 @@ export default function Login() {
     </form>
   );
 }
+// **************************************************

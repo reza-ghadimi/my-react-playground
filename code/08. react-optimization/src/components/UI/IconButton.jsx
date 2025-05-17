@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: 
+// **************************************************
 // import { log } from '../../log.js';
 
 // export default function IconButton({ children, icon, ...props }) {
@@ -11,7 +14,11 @@
 //     </button>
 //   );
 // }
+// **************************************************
 
+// **************************************************
+// A-02: Introduced memo and onClick prop to optimize re-renders and serve reusable UI logic for counter control buttons.
+// **************************************************
 import { memo } from 'react';
 
 import { log } from '../../log.js';
@@ -29,3 +36,4 @@ const IconButton = memo(function IconButton({ children, icon, onClick }) {
 });
 
 export default IconButton;
+// **************************************************

@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Basic Signup form UI with inputs and buttons, no event handling yet
+// **************************************************
 // export default function Signup() {
 //   return (
 //     <form>
@@ -94,8 +97,11 @@
 //     </form>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-02: Added handleSubmit to prevent default form submission behavior
+// **************************************************
 // export default function Signup() {
 //   function handleSubmit(event) {
 //     event.preventDefault();
@@ -197,8 +203,11 @@
 //   );
 // }
 
+// **************************************************
 
-
+// **************************************************
+// A-03: Introduced React 19+ form action handler for form data processing
+// **************************************************
 // export default function Signup() {
 //   function signupAction(formData) {
 //     const email = formData.get('email');
@@ -304,6 +313,11 @@
 //   );
 // }
 
+// **************************************************
+
+// **************************************************
+// A-04: Added form validation logic with error collection using imported validators
+// **************************************************
 // import { isEmail, isMatch, isPassordValid, hasNonEmptyValue, isNullOrWhitespace } from '../infrastructure/validation.js'
 
 // export default function Signup() {
@@ -461,6 +475,11 @@
 //   );
 // }
 
+// **************************************************
+
+// **************************************************
+// A-05: Improved formData extraction using Object.fromEntries for cleaner code
+// **************************************************
 // import { isEmail, isMatch, isPassordValid, hasNonEmptyValue, isNullOrWhitespace } from '../infrastructure/validation.js'
 
 // export default function Signup() {
@@ -616,6 +635,11 @@
 //   );
 // }
 
+// **************************************************
+
+// **************************************************
+// A-06: Enhanced signupAction to accept previous form state and use new React 19+ useActionState hook
+// **************************************************
 // import { useActionState } from 'react'; // react 19+
 // import { isEmail, isMatch, isTruthy, isPassordValid, hasNonEmptyValue, isNullOrWhitespace } from '../infrastructure/validation.js'
 
@@ -777,7 +801,11 @@
 //   );
 // }
 
+// **************************************************
 
+// **************************************************
+// A-07:Adds returning data for re-populating form inputs on error — improves user experience.
+// **************************************************
 // import { useActionState } from 'react';
 // import { isEmail, isMatch, isTruthy, isPassordValid, hasNonEmptyValue, isNullOrWhitespace } from '../infrastructure/validation.js'
 
@@ -959,8 +987,11 @@
 //   );
 // }
 
+// **************************************************
 
-
+// **************************************************
+// A-08: Moves the signupAction function outside the component to avoid re-creating it on every render — improves performance.
+// **************************************************
 import { useActionState } from 'react';
 import { isEmail, isMatch, isTruthy, isPassordValid, hasNonEmptyValue, isNullOrWhitespace } from '../infrastructure/validation.js'
 
@@ -1142,5 +1173,4 @@ export default function Signup() {
     </form>
   );
 }
-
-
+// **************************************************

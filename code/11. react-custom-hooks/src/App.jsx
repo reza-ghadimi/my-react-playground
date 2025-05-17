@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Initialize and set up the basic configuration.
+// **************************************************
 // import { useRef, useState, useEffect, useCallback } from 'react';
 
 // import logoImage from './assets/logo.png';
@@ -150,8 +153,12 @@
 // }
 
 // export default App;
+// **************************************************
 
-import { useRef, useState, useEffect, useCallback } from 'react';
+// **************************************************
+// A-02: Process input data and apply core transformations using a custom useFetch hook for data fetching and state management.
+// **************************************************
+import { useRef, useState, useCallback } from 'react';
 
 import logoImage from './assets/logo.png';
 
@@ -321,3 +328,4 @@ function App() {
 }
 
 export default App;
+// **************************************************
