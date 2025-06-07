@@ -1,3 +1,6 @@
+// **************************************************
+// A-02: Provides a context for managing and updating the global state of user opinions, including fetch, add, upvote, and downvote operations.
+// **************************************************
 import { createContext, useEffect, useState } from 'react';
 
 const baseUrl = "http://localhost:3000";
@@ -70,3 +73,4 @@ export function OpinionsContextProvider({ children }) {
 
   return <OpinionsContext value={contextValue}>{children}</OpinionsContext>;
 }
+// **************************************************

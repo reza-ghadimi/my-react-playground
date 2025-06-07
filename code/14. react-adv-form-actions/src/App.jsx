@@ -1,3 +1,6 @@
+// **************************************************
+// A-01:
+// **************************************************
 import { Header } from './components/Header';
 import { Opinions } from './components/Opinions';
 import { NewOpinion } from './components/NewOpinion';
@@ -18,3 +21,4 @@ function App() {
 }
 
 export default App;
+// **************************************************

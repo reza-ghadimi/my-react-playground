@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Displays an individual opinion with static voting UI lacking interactivity.
+// **************************************************
 // export function Opinion({ opinion: { id, title, body, userName, votes } }) {
 //   return (
 //     <article>
@@ -48,8 +51,11 @@
 //     </article>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-02: Interactive opinion card using context-based upvote and downvote actions.
+// **************************************************
 // import { use } from 'react';
 // import { OpinionsContext } from "../store/opinions-context";
 
@@ -115,9 +121,11 @@
 //     </article>
 //   );
 // }
+// **************************************************
 
-
-
+// **************************************************
+// A-03: Interactive opinion card with asynchronous vote actions and UI disabled during pending requests.
+// **************************************************
 // import { use, useActionState } from 'react';
 // import { OpinionsContext } from "../store/opinions-context";
 
@@ -186,10 +194,11 @@
 //     </article>
 //   );
 // }
+// **************************************************
 
-
-
-
+// **************************************************
+// A-04: Optimistically handles upvote/downvote actions with React Server Actions, updating UI instantly while managing pending states.
+// **************************************************
 import { use, useOptimistic, useActionState } from 'react';
 import { OpinionsContext } from "../store/opinions-context";
 
@@ -265,3 +274,4 @@ export function Opinion({ opinion: { id, title, body, userName, votes } }) {
     </article>
   );
 }
+// **************************************************

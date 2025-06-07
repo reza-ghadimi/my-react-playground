@@ -1,3 +1,6 @@
+// **************************************************
+// A-01: Form with local validation to collect user opinions, without integrating context or backend submission.
+// **************************************************
 // import { useActionState } from 'react';
 
 // export function NewOpinion() {
@@ -91,8 +94,11 @@
 //     </div>
 //   );
 // }
+// **************************************************
 
-
+// **************************************************
+// A-02: Improved form with validation and integration to context for submitting new opinions asynchronously.
+// **************************************************
 // import { use, useActionState } from 'react';
 // import { OpinionsContext } from '../store/opinions-context';
 
@@ -195,9 +201,11 @@
 //   );
 // }
 
+// **************************************************
 
-
-
+// **************************************************
+// A-03: Adds form pending state handling to the opinion submission form using useActionState.
+// **************************************************
 // import { use, useActionState } from 'react';
 // import { OpinionsContext } from '../store/opinions-context';
 
@@ -300,8 +308,11 @@
 //   );
 // }
 
+// **************************************************
 
-
+// **************************************************
+// A-04: Optimized opinion form with external Submit button component, separating logic and UI concerns.
+// **************************************************
 import { use, useActionState } from 'react';
 // import { useFormStatus } from 'react-dom'; // Does not work in Form itself!
 
@@ -404,3 +415,4 @@ export function NewOpinion() {
     </div>
   );
 }
+// **************************************************
